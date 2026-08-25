@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAKEEM EVENTS AND CELEBRATIONS — Tech & Innovation Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Ambient Atmosphere Elements -->
+    <div class="cyber-stage-bg">
+        <div class="spotlight beam-left"></div>
+        <div class="spotlight beam-right"></div>
+        <div class="ambient-glow glow-1"></div>
+        <div class="ambient-glow glow-2"></div>
+        <div class="neon-floor-grid"></div>
+    </div>
+
+    <div id="app" class="app-container">
+
+        <!-- Top Navigation Bar -->
+        <header class="navbar">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#070d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke="#070d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="#070d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <span class="brand-title">HAKEEM <span>EVENTS</span></span>
+            </div>
+            <nav class="nav-links">
+                <a href="#events" class="nav-item active" data-target="events-section"><i class="fas fa-microchip"></i> Events</a>
+                <a href="#registrations" class="nav-item" data-target="registrations-section"><i class="fas fa-ticket-alt"></i> My Registrations</a>
+                <a href="#admin" class="nav-item" data-target="admin-section"><i class="fas fa-user-shield"></i> Dashboard</a>
+            </nav>
+            <div class="nav-profile">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle-btn" class="theme-toggle-btn" title="Toggle Light/Dark Mode">
+                    <i class="fas fa-sun" id="theme-icon"></i>
+                </button>
+
+                <!-- Interactive Notification Bell & Panel -->
+                <div class="notification-wrapper">
+                    <div class="notification-badge-icon" id="notification-bell">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge-count hidden" id="notification-count">0</span>
+                    </div>
+                    <div class="notification-panel hidden" id="notification-panel">
+                        <div class="notification-panel-header">
+                            <span>System Activity Alerts</span>
+                            <button id="clear-notifications-btn">Clear All</button>
+                        </div>
+                        <div class="notification-panel-body" id="notification-list">
+                            <div class="notification-empty">No new notifications yet.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-info">
+                    <span class="profile-name">Admin Hakeem</span>
+                    <span class="profile-id">ID: HAKEEM01</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- EVENTS DISCOVERY -->
+            <section id="events-section" class="content-section active">
+                <div class="hero-banner">
+                    <div class="hero-text fade-in-up">
+                        <span class="hero-subtitle">HAKEEM INNOVATION SUMMIT AND HACKATHON</span>
+                        <h1>HAKEEM EVENTS <span>AND CELEBRATIONS</span></h1>
+                        <p>Engage in high-impact technology competitions, specialized engineering workshops, and next-gen executive showcases.</p>
+                        <div class="hero-actions">
+                            <a href="#events-grid-anchor" class="btn btn-primary pulse-btn">Explore Events</a>
+                        </div>
+                    </div>
+                    <div class="hero-graphic floating-card">
+                        <div class="cyber-stage-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>SYSTEM SECURE // V.2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="events-grid-anchor"></div>
+
+                <!-- Search & Filters Toolbar -->
+                <div class="filter-toolbar glassmorphism">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-input" placeholder="Search events, venues, or categories...">
+                    </div>
+                    <div class="filter-group">
+                        <select id="category-filter" class="select-control">
+                            <option value="All">All Categories</option>
+                            <option value="Technical">Technical</option>
+                            <option value="Cultural">Cultural</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Workshop">Workshop</option>
+                            <option value="Seminar">Seminar</option>
+                            <option value="Hackathon">Hackathon</option>
+                        </select>
+                        <input type="date" id="date-filter" class="input-control date-picker-custom">
+                        <select id="sort-select" class="select-control">
+                            <option value="date-asc">Timeline: Earliest</option>
+                            <option value="date-desc">Timeline: Latest</option>
+                            <option value="fee-asc">Fee: Low → High</option>
+                            <option value="fee-desc">Fee: High → Low</option>
+                            <option value="seats-asc">Seats: Low</option>
+                            <option value="seats-desc">Seats: High</option>
+                        </select>
+                        <button id="clear-filters" class="btn btn-secondary">Reset Filters</button>
+                    </div>
+                </div>
+
+                <!-- Category Quick Pills -->
+                <div class="category-pills" id="category-pills">
+                    <button class="pill active" data-category="All">All Categories</button>
+                    <button class="pill" data-category="Technical">Technical</button>
+                    <button class="pill" data-category="Cultural">Cultural</button>
+                    <button class="pill" data-category="Sports">Sports</button>
+                    <button class="pill" data-category="Workshop">Workshop</button>
+                    <button class="pill" data-category="Seminar">Seminar</button>
+                    <button class="pill" data-category="Hackathon">Hackathon</button>
+                </div>
+
+                <div class="section-results-header">
+                    <h3 id="events-count-heading">Loading available events...</h3>
+                </div>
+
+                <div id="events-grid" class="events-grid"></div>
+
+                <div id="events-empty-state" class="empty-state glassmorphism hidden">
+                    <i class="fas fa-satellite-dish"></i>
+                    <h3>No Events Found</h3>
+                    <p>Try adjusting your search criteria or filters to view available events.</p>
+                </div>
+            </section>
+
+            <!-- MY REGISTRATIONS -->
+            <section id="registrations-section" class="content-section">
+                <div class="section-header-flex">
+                    <div>
+                        <h2>My Registrations</h2>
+                        <p>View and manage your active event registration passes.</p>
+                    </div>
+                </div>
+
+                <div class="filter-toolbar glassmorphism">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="reg-search-input" placeholder="Search by Registration ID, Attendee Name, or Event...">
+                    </div>
+                    <div class="filter-group">
+                        <select id="reg-status-filter" class="select-control">
+                            <option value="All">All Status</option>
+                            <option value="Registered">Registered</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-responsive glassmorphism">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Registration ID</th>
+                                <th>Attendee Name</th>
+                                <th>Attendee Number</th>
+                                <th>Event Name</th>
+                                <th>Date & Time</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="registrations-table-body"></tbody>
+                    </table>
+                </div>
+
+                <div id="registrations-empty-state" class="empty-state glassmorphism hidden">
+                    <i class="fas fa-id-card"></i>
+                    <h3>No Registrations Found</h3>
+                    <p>You have not registered for any events yet.</p>
+                </div>
+            </section>
+
+            <!-- ADMIN DASHBOARD -->
+            <section id="admin-section" class="content-section">
+                <div class="section-header-flex">
+                    <div>
+                        <h2>Admin Dashboard</h2>
+                        <p>Manage event listings, review attendee registrations, and view performance analytics.</p>
+                    </div>
+                    <button class="btn btn-primary pulse-btn" id="open-add-event-modal"><i class="fas fa-plus-circle"></i> Add New Event</button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card glassmorphism">
+                        <div class="stat-icon bg-blue"><i class="fas fa-project-diagram"></i></div>
+                        <div class="stat-details">
+                            <span class="stat-title">Total Events</span>
+                            <h3 id="stat-total-events">0</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card glassmorphism">
+                        <div class="stat-icon bg-purple"><i class="fas fa-users-cog"></i></div>
+                        <div class="stat-details">
+                            <span class="stat-title">Total Attendees</span>
+                            <h3 id="stat-total-students">0</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card glassmorphism">
+                        <div class="stat-icon bg-green"><i class="fas fa-fingerprint"></i></div>
+                        <div class="stat-details">
+                            <span class="stat-title">Registrations</span>
+                            <h3 id="stat-total-registrations">0</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card glassmorphism">
+                        <div class="stat-icon bg-orange"><i class="fas fa-cubes"></i></div>
+                        <div class="stat-details">
+                            <span class="stat-title">Available Seats</span>
+                            <h3 id="stat-available-seats">0</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card glassmorphism">
+                        <div class="stat-icon bg-red"><i class="fas fa-power-off"></i></div>
+                        <div class="stat-details">
+                            <span class="stat-title">Cancelled Passes</span>
+                            <h3 id="stat-cancelled-regs">0</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-tabs-container glassmorphism">
+                    <div class="admin-tab-headers">
+                        <button class="admin-tab-btn active" data-tab="manage-events-tab"><i class="fas fa-server"></i> Event Management</button>
+                        <button class="admin-tab-btn" data-tab="manage-regs-tab"><i class="fas fa-list-alt"></i> Registration Management</button>
+                    </div>
+
+                    <div id="manage-events-tab" class="admin-tab-content active">
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Event ID</th>
+                                        <th>Event Name</th>
+                                        <th>Category</th>
+                                        <th>Date</th>
+                                        <th>Venue</th>
+                                        <th>Fee (₹)</th>
+                                        <th>Seats (Avail/Total)</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-events-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="manage-regs-tab" class="admin-tab-content">
+                        <div class="filter-toolbar glassmorphism mb-4">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="admin-reg-search" placeholder="Search by Registration ID, Attendee, or Event...">
+                            </div>
+                            <div class="filter-group">
+                                <select id="admin-reg-event-filter" class="select-control">
+                                    <option value="All">All Events</option>
+                                </select>
+                                <select id="admin-reg-status-filter" class="select-control">
+                                    <option value="All">All Status</option>
+                                    <option value="Registered">Registered</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Registration ID</th>
+                                        <th>Attendee Name</th>
+                                        <th>Attendee No.</th>
+                                        <th>Event</th>
+                                        <th>Timestamp</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-regs-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="registration-modal" class="modal">
+        <div class="modal-content glassmorphism">
+            <div class="modal-header">
+                <h3>Event Registration</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="event-summary-card" id="modal-event-summary"></div>
+                <form id="registration-form">
+                    <input type="hidden" id="modal-event-id">
+                    <div class="form-group">
+                        <label>Attendee Full Name <span class="required">*</span></label>
+                        <input type="text" id="reg-name" class="form-control" placeholder="Enter full name">
+                        <span class="error-msg" id="err-name">Name must be at least 2 characters.</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Attendee Reference Number <span class="required">*</span></label>
+                        <input type="text" id="reg-number" class="form-control" placeholder="e.g. HAKEEM01">
+                        <span class="error-msg" id="err-number">Reference number cannot be empty.</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" id="reg-email" class="form-control" placeholder="attendee@enterprise.com">
+                        <span class="error-msg" id="err-email">Please enter a valid email address.</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="text" id="reg-phone" class="form-control" maxlength="10" placeholder="10-digit phone number">
+                        <span class="error-msg" id="err-phone">Phone number must be exactly 10 digits.</span>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+                        <button type="submit" class="btn btn-primary pulse-btn">Confirm Registration</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="event-modal" class="modal">
+        <div class="modal-content glassmorphism">
+            <div class="modal-header">
+                <h3 id="event-modal-title">Add New Event</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="event-form">
+                    <input type="hidden" id="edit-event-id">
+                    <div class="form-group">
+                        <label>Event Name <span class="required">*</span></label>
+                        <input type="text" id="admin-event-name" class="form-control" required placeholder="Event Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Category <span class="required">*</span></label>
+                        <select id="admin-event-category" class="form-control" required>
+                            <option value="Technical">Technical</option>
+                            <option value="Cultural">Cultural</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Workshop">Workshop</option>
+                            <option value="Seminar">Seminar</option>
+                            <option value="Hackathon">Hackathon</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Event Date <span class="required">*</span></label>
+                        <input type="date" id="admin-event-date" class="form-control date-picker-custom" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Venue <span class="required">*</span></label>
+                        <input type="text" id="admin-event-venue" class="form-control" required placeholder="Auditorium / Lab">
+                    </div>
+                    <div class="form-group">
+                        <label>Registration Fee (₹) <span class="required">*</span></label>
+                        <input type="number" id="admin-event-fee" class="form-control" min="0" required placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Available Seats <span class="required">*</span></label>
+                        <input type="number" id="admin-event-seats" class="form-control" min="1" required placeholder="e.g. 50">
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+                        <button type="submit" class="btn btn-primary pulse-btn" id="save-event-btn">Save Event</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content modal-sm glassmorphism">
+            <div class="modal-header">
+                <h3>Confirmation</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirm-message">Are you sure you want to proceed with this action?</p>
+                <div class="modal-actions mt-3">
+                    <button type="button" class="btn btn-secondary" id="confirm-no">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirm-yes">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
